@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitledchat/Screens/chatscreen.dart';
+import 'package:untitledchat/Screens/signin.dart';
 
 class mainscreen extends StatefulWidget {
   const mainscreen({super.key});
@@ -21,6 +23,7 @@ class _mainscreenState extends State<mainscreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chat App'),
+        actions: [IconButton(onPressed: _logout, icon: Icon(Icons.logout))],
       ),
       body: StreamBuilder(
         stream: firestore.snapshots(),
@@ -54,8 +57,16 @@ class _mainscreenState extends State<mainscreen> {
             );
 
           }
+
         },
+
       ),
+
     );
+  }
+
+  void _logout() async{
+    await FirebaseAuth.instance.signOut();
+    Get.offAll(signin());
   }
 }

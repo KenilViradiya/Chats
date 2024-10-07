@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:untitledchat/Screens/mainscreen.dart';
 
 import '../utils/ToastUtils.dart';
 
@@ -65,6 +68,7 @@ final FirebaseFirestore _firestore  =  FirebaseFirestore.instance;
           'Name': _name.text
         });
         ToastUtils.showtoast('Congrats Succesfully Register');
+        Get.to(mainscreen());
       }
       catch (e) {
         ToastUtils.showtoast('Something Wrong');
