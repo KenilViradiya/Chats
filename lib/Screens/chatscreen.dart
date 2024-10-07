@@ -31,8 +31,8 @@ class _chatscreenState extends State<chatscreen> {
   // Create a unique chat ID based on the current user ID and receiver ID
   String getchatid(String receiverid) {
     return currentuserid.compareTo(receiverid) < 0
-        ? '$currentuserid$receiverid'
-        : '$receiverid$currentuserid';
+        ? '$currentuserid + $receiverid'
+        : '$receiverid + $currentuserid';
   }
 
   // Send a message to Firestore
