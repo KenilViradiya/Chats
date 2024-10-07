@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:untitledchat/Screens/login.dart';
 import 'package:untitledchat/Screens/mainscreen.dart';
 
 import '../utils/ToastUtils.dart';
@@ -38,6 +39,10 @@ final FirebaseFirestore _firestore  =  FirebaseFirestore.instance;
                 onPressed:()  {signupwithmail();
                   },
                 child: Text('Sign Up')),
+            ElevatedButton(
+                onPressed:()  {
+                },
+                child: Text('log in')),
 
           ],
 

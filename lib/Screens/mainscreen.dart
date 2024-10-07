@@ -17,6 +17,7 @@ class _mainscreenState extends State<mainscreen> {
   // Get reference to the Firestore collection
   final CollectionReference firestore =
       FirebaseFirestore.instance.collection("User");
+  String currentuserid = FirebaseAuth.instance.currentUser?.uid ?? '';
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitledchat/Screens/mainscreen.dart';
 
 import '../utils/ToastUtils.dart';
 
@@ -47,7 +49,7 @@ class _loginState extends State<login> {
       final login = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email, password: password);
       ToastUtils.showtoast('Congratualtions.');
-
+Get.to(mainscreen());
 
     }catch(e)
     {

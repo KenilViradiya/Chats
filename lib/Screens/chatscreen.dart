@@ -52,6 +52,8 @@ class _chatscreenState extends State<chatscreen> {
       'receiverId': widget.receiverid, // ID of the receiver
       'message': msg, // The message text
       'timestamp': FieldValue.serverTimestamp(), // Timestamp for sorting
+    }).then((value) {
+      print("Message sent: $msg"); // Debugging output
     });
 
     msgtext.clear(); // Clear the input field after sending
@@ -71,6 +73,10 @@ class _chatscreenState extends State<chatscreen> {
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return Center(child: CircularProgressIndicator());
+                }
+
+                if (snapshot.data!.docs.isEmpty) {
+                  return Center(child: Text('No messages found.')); // Improved message
                 }
 
                 List<DocumentSnapshot> messages = snapshot.data!.docs;
